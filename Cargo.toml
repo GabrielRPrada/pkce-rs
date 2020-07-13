@@ -1,0 +1,14 @@
+[package]
+name = "pkce"
+version = "0.1.0"
+authors = ["Gabriel Prada <gabrielrprada@protonmail.com>"]
+edition = "2018"
+description = "Library for generating PKCE code verifiers and challenges"
+repository = "https://github.com/StargazerG/pkce-rs"
+license = "MIT OR Apache-2.0"
+keywords = ["pkce", "oauth", "verifier", "verify", "challenge"]
+
+[dependencies]
+base64 = "0.12.3"
+rand = "0.7.3"
+sha2 = "0.9.1"
