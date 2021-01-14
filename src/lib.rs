@@ -28,7 +28,7 @@ const CHARS: &[u8] = b"ABCDEFGHIJKLMNOPQRSTUVWXYZ\
 ///
 /// * `length` - The desired length in bytes of the code verifier. This value should be between 43 and 128 or else the function will panic.
 pub fn code_verifier(length: usize) -> Vec<u8> {
-    assert!(length > 43 && length < 129, "Code verifier length must be between 43 and 128 bytes");
+    assert!(length >= 43 && length <= 128, "Code verifier length must be between 43 and 128 bytes");
 
     let mut rng = thread_rng();
 
