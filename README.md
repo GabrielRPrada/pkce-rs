@@ -3,7 +3,7 @@ A very simple library for generating code verifiers and challenges to use for OA
 
 ```rs
 extern crate pkce;
- 
+
 fn main() {
     // Generate a random 128-byte code verifier (must be between 43 and 128 bytes)
     let code_verify = pkce::code_verifier(128);
@@ -15,3 +15,7 @@ fn main() {
 ```
 
 Wow, it really is that simple.
+
+## Features
+
+In order to support WebAssembly enable feature `js`.

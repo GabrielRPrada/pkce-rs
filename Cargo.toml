@@ -1,6 +1,6 @@
 [package]
 name = "pkce"
-version = "0.1.1"
+version = "0.2.0"
 authors = ["Gabriel Prada <gabrielrprada@protonmail.com>"]
 edition = "2018"
 description = "Library for generating PKCE code verifiers and challenges"
@@ -9,6 +9,11 @@ license = "MIT OR Apache-2.0"
 keywords = ["pkce", "oauth", "verifier", "verify", "challenge"]
 
 [dependencies]
-base64 = "0.12.3"
-rand = "0.7.3"
-sha2 = "0.9.1"
+base64 = "0.21"
+rand = "0.8"
+sha2 = "0.10"
+getrandom = { version = "0.2", features = ["js"], optional = true }
+
+[features]
+# option to enable web assembly support
+js = ["dep:getrandom"]

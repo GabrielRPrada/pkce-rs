@@ -15,6 +15,7 @@ extern crate base64;
 extern crate rand;
 extern crate sha2;
 
+use base64::Engine;
 use rand::{thread_rng, Rng};
 use sha2::{Digest, Sha256};
 
@@ -37,14 +38,14 @@ pub fn code_verifier(length: usize) -> Vec<u8> {
 
     (0..length)
         .map(|_| {
-            let i = rng.gen_range(0, CHARS.len());
+            let i = rng.gen_range(0..CHARS.len());
             CHARS[i]
         })
         .collect()
 }
 
 fn base64_url_encode(input: &[u8]) -> String {
-    let b64 = base64::encode(input);
+    let b64 = base64::engine::general_purpose::STANDARD.encode(input);
     b64.chars()
         .filter_map(|c| match c {
             '=' => None,
